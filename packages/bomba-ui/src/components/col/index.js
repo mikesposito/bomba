@@ -1,0 +1,1 @@
+export Col from './col.component';

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "bomba-*": ["packages/*/src"]
+    }
+  },
+  "references": [
+    {
+      "path": "./packages/bomba"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    [class^="col-"],
+    [class*=" col-"] {
+      margin: 0;
+      padding: 1em;
+      box-sizing: border-box;
+    }
+
+    @for $i from 1 through 12 {
+      $width: "#{(100 / 12) * $i}%";
+      .col-#{$i} {
+        width: unquote($width);
+      }
+    }
+
+    @each $key, $breakpoint in $breakpoints {
+      @media screen and (min-width: $breakpoint) {
+        @for $i from 1 through 12 {
+          $width: "#{(100 / 12) * $i}%";
+          .col-#{$key}-#{$i} {
+            width: unquote($width);
+          }
+        }
+      }
+    }
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+
+  .h-100 {
+    width: 100%;
+  }
+
+  .flex {
+    display: flex;
+
+    &.flex__center {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.flex__column {
+      flex-direction: column;
+    }
+  }
+
+  .round {
+    border-radius: 500%;
+  }
+}
