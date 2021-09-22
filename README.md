@@ -1,4 +1,4 @@
-# bomba
+# bomba 💣
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mikesposito/bomba/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/bomba.svg?style=flat)](https://www.npmjs.com/package/bomba)
