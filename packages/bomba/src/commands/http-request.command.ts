@@ -1,4 +1,4 @@
-import { get, post, put, patch, options, del, head } from 'bomba';
+import { get, post, put, patch, options, del, head } from '../index';
 import 'colorts/lib/string';
 import beautify from 'beautify';
 

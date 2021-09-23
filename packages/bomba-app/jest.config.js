@@ -1,6 +1,7 @@
 module.exports = {
 	preset: 'ts-jest',
 	moduleNameMapper: {
-		"@mikesposito/(.+)": "<rootDir>../$1/src"
+		"bomba-(.+)": "<rootDir>../$1/src",
+		"bomba": "<rootDir>../bomba/src"
 	}
 };

@@ -3,12 +3,20 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "bomba-*": ["packages/*/src"]
+      "bomba": ["packages/bomba/src"],
+      "bomba-ui": ["packages/bomba-ui/src"],
+      "bomba-app": ["packages/bomba-app/src"],
     }
   },
   "references": [
     {
       "path": "./packages/bomba"
+    },
+    {
+      "path": "./packages/bomba-ui"
+    },
+    {
+      "path": "./packages/bomba-app"
     }
   ]
 }
