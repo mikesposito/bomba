@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import CommandLineArgs from 'command-line-args';
-import { bombaCliInputArgs } from "../bomba-cli.input";
+import { bombaCliInputArgs } from "./bomba-cli.input";
 import { exec as execHttpRequest } from "../commands/http-request.command";
 
 (async () => {

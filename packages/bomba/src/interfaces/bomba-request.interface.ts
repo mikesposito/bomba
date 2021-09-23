@@ -6,7 +6,7 @@ export enum RequestMethod {
 	OPTIONS = "options"
 }
 
-export interface IRequest {
+export interface BombaRequest {
 	headers: any
 	method: string
 	url: string

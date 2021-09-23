@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mikesposito/bomba/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/bomba.svg?style=flat)](https://www.npmjs.com/package/bomba)
-[![npm downloads](https://img.shields.io/npm/dm/bomba.svg?style=flat-square)](http://npm-stat.com/charts.html?package=bomba)
+[![npm download💣s](https://img.shields.io/npm/dm/bomba.svg?style=flat-square)](http://npm-stat.com/charts.html?package=bomba)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/mikesposito/bomba/blob/main/CONTRIBUTING.md)
 
 Magnificent, but not existing yet, API client made for Humans

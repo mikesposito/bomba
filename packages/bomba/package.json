@@ -1,7 +1,7 @@
 {
   "name": "bomba",
   "version": "0.0.1",
-  "description": "--",
+  "description": "Magnificent, but not existing yet, API client made for Humans",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
@@ -11,6 +11,9 @@
   "files": [
     "dist"
   ],
+  "bin": {
+    "bomba": "./dist/bin/cli.js"
+  },
   "bugs": {
     "url": "https://github.com/mikesposito/bomba/issues"
   },
@@ -25,8 +28,16 @@
   "author": "Michele Esposito<michele@esposito.codes>",
   "license": "MIT",
   "devDependencies": {
+    "express": "^4.17.1",
     "jest": "^27.0.6",
+    "portastic": "^1.0.1",
     "ts-jest": "^27.0.5",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "beautify": "^0.0.8",
+    "colorts": "^0.1.63",
+    "command-line-args": "^5.2.0"
   }
 }

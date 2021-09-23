@@ -1,25 +1,20 @@
-import express, {Application, RequestHandler, response, ResponseHandler} from "express";
-import {runTestableServer} from "./global";
-import {get, IResponse} from "../src/index";
+import express, {Application, RequestHandler, ResponseHandler} from "express";
+import {runTestableServer, TestableServerMode} from "./global";
+import {BombaResponse, post} from "bomba";
 
-describe("bomba.get()", () => {
-	const testableServer: Application = express();
-	let listener;
+describe("bomba.post()", () => {
 
-	beforeAll(async () => {
-		listener = await runTestableServer(testableServer);
-	});
-
-	it("Should make a get request", () => {
+	it("Should make a post request with json data", async () => {
+		const testableServer: Application = express();
+		const listener = await runTestableServer(testableServer);
+		testableServer.post("/_success", (req: RequestHandler, res: ResponseHandler) => {
+			res.json(req.body);
+		});
+		const expectedBody = { hello: "World" };
 		return new Promise<void>((resolve, reject) => {
-			const expectedBody = {
-				hello: "World"
-			};
-			testableServer.use("/_success", (req: RequestHandler, res: ResponseHandler) => {
-				res.json(expectedBody);
-			});
-			get(`http://localhost:${listener.address().port}/_success`)
-				.then((response: IResponse) => {
+			post(`http://localhost:${listener.address().port}/_success`, expectedBody)
+				.then((response: BombaResponse) => {
+					listener.close();
 					expect(response.statusCode).toEqual(200);
 					expect(response.data).toEqual(expectedBody);
 					resolve();
@@ -28,23 +23,22 @@ describe("bomba.get()", () => {
 		});
 	});
 
-	it("Should return 404 if page doesn't exist", () => {
+	it("Should make a post request with text data", async () => {
+		const testableServer: Application = express();
+		const listener = await runTestableServer(testableServer, TestableServerMode.RAW);
+		testableServer.post("/_success", (req: RequestHandler, res: ResponseHandler) => {
+			res.send(req.body);
+		});
+		const expectedBody = "Hello, World!";
 		return new Promise<void>((resolve, reject) => {
-			testableServer.use("/_404", (req: RequestHandler, res: ResponseHandler) => {
-				res.status(404).send();
-			});
-			get(`http://localhost:${listener.address().port}/_404`)
-				.then((response: IResponse) => {
-					expect(response.statusCode).toEqual(404);
+			post(`http://localhost:${listener.address().port}/_success`, expectedBody, { "Content-Type": "text/plain" })
+				.then((response: BombaResponse) => {
+					listener.close();
+					expect(response.statusCode).toEqual(200);
+					expect(response.data).toEqual(expectedBody);
 					resolve();
 				})
 				.catch((e) => reject(e));
 		});
 	});
-
-	afterAll((done) => {
-		listener.close();
-		done();
-	});
-
 });
