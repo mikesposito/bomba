@@ -4,8 +4,8 @@ import axios, {AxiosError, AxiosResponse} from 'axios';
 export const _buildHttpRequest = (request: BombaRequest, callback) => {
 	const { method, url, data, headers } = request;
 	(method === "get" ?
-		axios.get(url, { headers, validateStatus: () => true })
-	: axios[method](url, data, { headers, validateStatus: () => true }))
+		axios.get(url, { headers })
+	: axios[method](url, data, { headers }))
 		.then((response: AxiosResponse) => {
 			callback({
 				statusCode: response.status,
