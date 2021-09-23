@@ -21,7 +21,8 @@ export const exec = (params) => {
 }
 
 const formatResponse = (response) => {
-	if(response.headers["content-type"]?.startsWith("text/html"))
-		return beautify(response.data, { format: "html" });
+	if(response.headers)
+		if(response.headers["content-type"]?.startsWith("text/html"))
+			return beautify(response.data, { format: "html" });
 	return response.data;
 }
