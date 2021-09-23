@@ -15,9 +15,9 @@ export const _buildHttpRequest = (request: BombaRequest, callback) => {
 		})
 		.catch((error: AxiosError) => {
 			callback({
-				statusCode: error.response.status,
-				data: error.response.data,
-				headers: error.response.headers
+				statusCode: error.response?.status || error.code,
+				data: error.response?.data || error.message,
+				headers: error.response?.headers || {}
 			});
 		});
 }

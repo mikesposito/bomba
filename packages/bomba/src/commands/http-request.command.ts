@@ -15,15 +15,15 @@ export const exec = (params) => {
 		.then(response => {
 			const color = response.statusCode > 299 ? "red" : "green";
 			console.log(">"[color], "Status Code: "[color], String(response.statusCode)[color]);
-			console.log(">".white, "Response Type: ".white, response.headers["content-type"]);
+			console.log(">".white, "Response Type: ".white, response.headers["content-type"] || "Error");
 			console.log(">".green, "Response Body: ".gray, formatResponse(response));
 		});
 }
 
 const formatResponse = (response) => {
-	if(response.headers["content-type"].startsWith("application/json"))
+	if(response.headers["content-type"]?.startsWith("application/json"))
 		return beautify(response.data, { format: "json" });
-	if(response.headers["content-type"].startsWith("text/html"))
+	if(response.headers["content-type"]?.startsWith("text/html"))
 		return beautify(response.data, { format: "html" });
 	return response.data;
 }
