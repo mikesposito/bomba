@@ -16,13 +16,14 @@ export const exec = (params) => {
 			const color = response.statusCode > 299 ? "red" : "green";
 			console.log(">"[color], "Status Code: "[color], String(response.statusCode)[color]);
 			console.log(">".white, "Response Type: ".gray, (response.headers["content-type"] || "Error").gray);
-			console.log(">".green, "Response Body: ".white, formatResponse(response.data));
+			console.log(">".green, "Response Body: ".white, formatResponse(response));
 		});
 }
 
 const formatResponse = (response) => {
-	if(response.headers)
-		if(response.headers["content-type"]?.startsWith("text/html"))
+	if(response.headers && response.headers["content-type"]) {
+		if(response.headers["content-type"].startsWith("text/html"))
 			return beautify(response.data, { format: "html" });
+	}
 	return response.data;
 }
