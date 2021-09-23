@@ -12,7 +12,7 @@
     "dist"
   ],
   "bin": {
-    "bomba": "./dist/bin/cli.js"
+    "bomba": "./dist/bin/bomba-cli.js"
   },
   "bugs": {
     "url": "https://github.com/mikesposito/bomba/issues"
