@@ -1,4 +1,4 @@
-import {get, post, put, patch, options, del, head, getBombaStorage, Storage} from '../index';
+import { get, post, put, patch, options, del, head, getBombaStorage } from '../index';
 import 'colorts/lib/string';
 import beautify from 'beautify';
 import jsonpath from 'jsonpath';
