@@ -1,6 +1,6 @@
 {
   "name": "bomba",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Magnificent, but not existing yet, API client made for Humans",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
