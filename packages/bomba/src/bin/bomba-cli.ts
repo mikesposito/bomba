@@ -6,7 +6,7 @@ import { exec as execHttpRequest } from "../commands/http-request.command";
 (async () => {
 	const mainArg = CommandLineArgs(bombaCliInputArgs.command, { stopAtFirstUnknown: true });
 	// Requests
-	if(["get", "post", "put", "patch", "options", "delete", "head"].includes(mainArg.command)) {
+	if(["get", "post", "put", "patch", "options", "delete", "head", "req"].includes(mainArg.command)) {
 		const requestUrlArg = CommandLineArgs(
 			bombaCliInputArgs.requestArgs.url,
 			{
@@ -19,10 +19,11 @@ import { exec as execHttpRequest } from "../commands/http-request.command";
 				argv: requestUrlArg._unknown || []
 			}
 		);
+
 		execHttpRequest({
 			command: mainArg.command,
 			url: requestUrlArg.url,
-			options: optionArgs.options
+			options: optionArgs,
 		});
 	}
 })();
