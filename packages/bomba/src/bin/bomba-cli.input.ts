@@ -12,10 +12,22 @@ export const bombaCliInputArgs = {
 			name: "url",
 			defaultOption: true
 		}],
-		options: [{
-			name: 'header',
-			alias: 'h',
-			type: String
-		}]
+		options: [
+			{
+				name: 'header',
+				alias: 'h',
+				type: String
+			},
+			{
+				name: 'name',
+				alias: 'n',
+				type: String
+			},
+			{
+				name: 'filter',
+				alias: 'f',
+				type: String
+			}
+		]
 	}
 }

@@ -1,6 +1,11 @@
 import { BombaResponse } from "../../index";
 import { _buildHttpRequest } from "./helper";
 
+/**
+ * GET
+ * @param endpoint
+ * @param headers
+ */
 export const get = (
 	endpoint: string,
 	headers: any = {}
@@ -18,6 +23,12 @@ export const get = (
 	});
 }
 
+/**
+ * POST
+ * @param endpoint
+ * @param data
+ * @param headers
+ */
 export const post = (
 	endpoint: string,
 	data: any = {},
@@ -37,6 +48,12 @@ export const post = (
 	});
 }
 
+/**
+ * PUT
+ * @param endpoint
+ * @param data
+ * @param headers
+ */
 export const put = (
 	endpoint: string,
 	data: any = {},
@@ -56,6 +73,12 @@ export const put = (
 	});
 }
 
+/**
+ * PATCH
+ * @param endpoint
+ * @param data
+ * @param headers
+ */
 export const patch = (
 	endpoint: string,
 	data: any = {},
@@ -75,6 +98,12 @@ export const patch = (
 	});
 }
 
+/**
+ * OPTIONS
+ * @param endpoint
+ * @param headers
+ * @param data
+ */
 export const options = (
 	endpoint: string,
 	headers: any = {},
@@ -94,6 +123,12 @@ export const options = (
 	});
 }
 
+/**
+ * HEAD
+ * @param endpoint
+ * @param headers
+ * @param data
+ */
 export const head = (
 	endpoint: string,
 	headers: any = {},
@@ -113,6 +148,12 @@ export const head = (
 	});
 }
 
+/**
+ * DEL
+ * @param endpoint
+ * @param headers
+ * @param data
+ */
 export const del = (
 	endpoint: string,
 	headers: any = {},
