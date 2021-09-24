@@ -31,7 +31,7 @@ Magnificent, but not existing yet, API client made for Humans
 You can install bomba using NPM:
 
 ```bash
-$ npm install -g bomba
+npm install -g bomba
 ```
 
 ## Usage
@@ -39,38 +39,64 @@ $ npm install -g bomba
 ### Cli
 
 ```bash
-$ bomba [<command>] [<url>] 
+bomba <command> <url> 
 ```
 
 Example GET Request
 
 ```bash
-$ bomba get https://my-api.io/endpoint
+bomba get https://dog.ceo/api/breeds/list/all
 ```
 
 ## Save Requests
 
 ```bash
-$ bomba get https://my-api.io/endpoint -n my_namespace:my_req
+bomba get https://dog.ceo/api/breeds/list/all -n dogs:list
 ```
 
 Using `-n` flag the request will be saved in the `my_namespace` group, and named as `my_req`.
 After that, you will be able to resend the request with the command `req`:
 
 ```bash
-$ bomba req my_namespace:my_req
+bomba req dogs:list
 ```
 
 ## Filter Responses
 
 ```bash
-$ bomba req my_namespace:my_req -f <FILTER> 
+bomba <command> <url> -f <jsonpath> 
+# OR
+bomba req <namespace>:<name> -f <filter> 
 ```
 
-Example: 
+Examples: 
 
 ```bash
-$ bomba req my_api:get_user -f $.id
+bomba get https://dog.ceo/api/breeds/list/all -f $.message.terrier 
+
+# OR IF YOU SAVED IT BEFORE
+bomba req dogs:list -f $.message.terrier 
+
+
+# OUTPUT:
+#  > Status Code:  200
+#  > Response Type:  application/json
+#  > Selected:  [
+#    [
+#      'american',   'australian',
+#      'bedlington', 'border',
+#      'cairn',      'dandie',
+#      'fox',        'irish',
+#      'kerryblue',  'lakeland',
+#      'norfolk',    'norwich',
+#      'patterdale', 'russell',
+#      'scottish',   'sealyham',
+#      'silky',      'tibetan',
+#      'toy',        'westhighland',
+#      'wheaten',    'yorkshire'
+#    ]
+#  ]
+
 ```
 
 ATM, `-f` flag supports only JSONPATH filters with json responses. In the future, bomba will also support DOM filters on HTML responses
