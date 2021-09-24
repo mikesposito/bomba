@@ -37,7 +37,7 @@ export const exec = (params) => {
 		}
 	}
 
-	bombaRequestCommands[params.command === "req" ? savedRequest.method : params.command](savedRequest?.url || params.url, ...(params.command = "get" ? [headers] : [data, headers]))
+	bombaRequestCommands[(params.command === "req" && savedRequest) ? savedRequest.method : params.command](savedRequest?.url || params.url, ...(params.command = "get" ? [headers] : [data, headers]))
 		.then(response => {
 			const color = response.statusCode > 299 ? "red" : "green";
 			console.log(">"[color], "Status Code: "[color], String(response.statusCode)[color]);
