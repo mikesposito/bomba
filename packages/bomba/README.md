@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mikesposito/bomba/blob/main/LICENSE)
 [![npm version](https://img.shields.io/npm/v/bomba.svg?style=flat)](https://www.npmjs.com/package/bomba)
-[![npm downloads](https://img.shields.io/npm/dm/bomba.svg?style=flat-square)](http://npm-stat.com/charts.html?package=bomba)
+[![npm download💣s](https://img.shields.io/npm/dm/bomba.svg?style=flat-square)](http://npm-stat.com/charts.html?package=bomba)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/mikesposito/bomba/blob/main/CONTRIBUTING.md)
 
 Magnificent, but not existing yet, API client made for Humans
@@ -10,6 +10,8 @@ Magnificent, but not existing yet, API client made for Humans
 ## Table of Contents
 
 - [Features](#features)
+- [Install](#install)  
+- [Usage](#usage)  
 - [Contributing](#contributing)
   - [Code of conduct](#code-of-conduct)
   - [Contributing Guide](#contributing-guide)
@@ -24,21 +26,70 @@ Magnificent, but not existing yet, API client made for Humans
 - [ ] A magnificent desktop app: `bomba-app`
 - [ ] An inevitable terminal CLI : `bomba-cli`
 
+## Install
+
+You can install bomba using NPM:
+
+```bash
+$ npm install -g bomba
+```
+
+## Usage
+
+### Cli
+
+```bash
+$ bomba [<command>] [<url>] 
+```
+
+Example GET Request
+
+```bash
+$ bomba get https://my-api.io/endpoint
+```
+
+## Save Requests
+
+```bash
+$ bomba get https://my-api.io/endpoint -n my_namespace:my_req
+```
+
+Using `-n` flag the request will be saved in the `my_namespace` group, and named as `my_req`.
+After that, you will be able to resend the request with the command `req`:
+
+```bash
+$ bomba req my_namespace:my_req
+```
+
+## Filter Responses
+
+```bash
+$ bomba req my_namespace:my_req -f <FILTER> 
+```
+
+Example: 
+
+```bash
+$ bomba req my_api:get_user -f $.id
+```
+
+ATM, `-f` flag supports only JSONPATH filters with json responses. In the future, bomba will also support DOM filters on HTML responses
+
 ## Contributing
 
-The main purpose of this repository is to continue evolving tunnelify core, making it faster and easier to use. Development of tunnelify happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving tunnelify.
+The main purpose of this repository is to continue evolving bomba core, making it faster and easier to use. Development of bomba happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. Read below to learn how you can take part in improving bomba.
 
 ### [Code of Conduct](CODE_OF_CONDUCT.md)
 
-tunnelify has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+bomba has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ### [Contributing Guide](CONTRIBUTING.md)
 
-Read our [contributing guide](CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to tunnelify.
+Read our [contributing guide](CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to bomba.
 
 ### Good First Issues
 
-To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/mikesposito/tunnelify/labels/good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started.
+To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/mikesposito/bomba/labels/good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started.
 
 ## License
 
