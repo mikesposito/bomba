@@ -1,3 +1,5 @@
+## **NOTE**: Deprecated in favor of [glue](https://github.com/mikesposito/glue)
+
 # bomba 💣
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mikesposito/bomba/blob/main/LICENSE)
